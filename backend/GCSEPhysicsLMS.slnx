@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Services/">
+    <Project Path="Services/AuthService/AuthService.csproj" />
+    <Project Path="Services/CMSService/CMSService.csproj" />
+    <Project Path="Services/TeacherStudentService/TeacherStudentService.csproj" />
+  </Folder>
+  <Project Path="ApiGateway/ApiGateway.csproj" />
+  <Project Path="Shared/Shared.csproj" />
+</Solution>

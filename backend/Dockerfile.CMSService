@@ -1,0 +1,28 @@
+# Base stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy solution and project files
+COPY ["Services/CMSService/CMSService.csproj", "Services/CMSService/"]
+COPY ["Shared/Shared.csproj", "Shared/"]
+
+# Restore dependencies
+RUN dotnet restore "Services/CMSService/CMSService.csproj"
+
+# Copy source code
+COPY . .
+
+# Build
+WORKDIR "/src/Services/CMSService"
+RUN dotnet build "CMSService.csproj" -c Release -o /app/build
+
+# Publish
+FROM build AS publish
+RUN dotnet publish "CMSService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Final stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+EXPOSE 8080
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "CMSService.dll"]
