@@ -1,0 +1,28 @@
+# Base stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy solution and project files
+COPY ["Services/TeacherStudentService/TeacherStudentService.csproj", "Services/TeacherStudentService/"]
+COPY ["Shared/Shared.csproj", "Shared/"]
+
+# Restore dependencies
+RUN dotnet restore "Services/TeacherStudentService/TeacherStudentService.csproj"
+
+# Copy source code
+COPY . .
+
+# Build
+WORKDIR "/src/Services/TeacherStudentService"
+RUN dotnet build "TeacherStudentService.csproj" -c Release -o /app/build
+
+# Publish
+FROM build AS publish
+RUN dotnet publish "TeacherStudentService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Final stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+EXPOSE 8080
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "TeacherStudentService.dll"]

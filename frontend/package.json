@@ -1,0 +1,22 @@
+{
+  "name": "gcse-physics-lms-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "GCSE Physics LMS Frontend",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.3",
+    "axios": "^1.13.4",
+    "pinia": "^3.0.4",
+    "vite": "^7.3.1",
+    "vue": "^3.5.27",
+    "vue-router": "^4.6.4"
+  }
+}

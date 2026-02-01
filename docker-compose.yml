@@ -1,0 +1,151 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: gcse-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gcse_auth
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  mongodb:
+    image: mongo:6.0
+    container_name: gcse-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  apigateway:
+    build:
+      context: ./backend/ApiGateway
+      dockerfile: ../Dockerfile.ApiGateway
+    container_name: gcse-apigateway
+    ports:
+      - "5000:8080"
+    depends_on:
+      - authservice
+      - cmsservice
+      - teacherstudentservice
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+
+  authservice:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.AuthService
+    container_name: gcse-authservice
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=gcse_auth;Username=postgres;Password=postgres
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5001:8080"
+    depends_on:
+      - postgres
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+        reservations:
+          memory: 192M
+
+  cmsservice:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.CMSService
+    container_name: gcse-cmsservice
+    environment:
+      - MongoDB__ConnectionString=mongodb://admin:admin@mongodb:27017
+      - MongoDB__DatabaseName=gcse_cms
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5002:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+        reservations:
+          memory: 192M
+
+  teacherstudentservice:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.TeacherStudentService
+    container_name: gcse-teacherstudentservice
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=gcse_relationships;Username=postgres;Password=postgres
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5003:8080"
+    depends_on:
+      - postgres
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+        reservations:
+          memory: 192M
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.Frontend
+    container_name: gcse-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - apigateway
+    networks:
+      - gcse-network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+
+networks:
+  gcse-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  mongodb-data:
