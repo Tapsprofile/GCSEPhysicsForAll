@@ -3,6 +3,7 @@
     {
       "id": "physics",
       "title": "Physics",
+      "domain": "secondary-education",
       "level": "GCSE",
       "keyStage": "KS4",
       "description": "Mechanics, energy, waves, electricity, and the fundamentals of matter and space.",
@@ -321,6 +322,7 @@
     {
       "id": "chemistry",
       "title": "Chemistry",
+      "domain": "secondary-education",
       "level": "GCSE",
       "keyStage": "KS4",
       "description": "Structure of matter, bonding, reactions, and the chemistry of the atmosphere.",
@@ -710,6 +712,7 @@
     {
       "id": "mathematics",
       "title": "Mathematics",
+      "domain": "secondary-education",
       "level": "GCSE",
       "keyStage": "KS4",
       "description": "Number, algebra, geometry, probability, and statistics.",

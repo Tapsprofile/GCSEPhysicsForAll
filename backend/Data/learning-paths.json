@@ -1,0 +1,352 @@
+{
+  "paths": [
+    {
+      "id": "physics-gcse-core",
+      "subjectId": "physics",
+      "title": "GCSE Physics Core Path",
+      "track": "Core",
+      "description": "A structured learning path that builds physics mastery in four evidence-based checkpoints.",
+      "outcomes": [
+        "Apply mechanics and energy concepts to exam-style problems.",
+        "Explain wave behavior, electricity, and electromagnetism.",
+        "Use particle and atomic models to interpret phenomena.",
+        "Communicate scientific reasoning with clear calculations."
+      ],
+      "steps": [
+        {
+          "id": "phy-step-1",
+          "title": "Motion and Energy Foundations",
+          "description": "Secure fundamentals of motion, forces, and energy transfers.",
+          "milestone": "Mechanics checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "phy-01-forces",
+            "phy-02-energy"
+          ],
+          "prerequisiteStepIds": [],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "worked-examples",
+              "quiz",
+              "lab-notes"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "checkpoint-quiz",
+            "description": "Timed quiz covering forces, graphs, momentum, and energy.",
+            "passingCriteria": "80% mastery"
+          }
+        },
+        {
+          "id": "phy-step-2",
+          "title": "Waves and Electricity",
+          "description": "Build conceptual and calculation fluency in waves and circuits.",
+          "milestone": "Waves and electricity checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "phy-03-waves",
+            "phy-04-electricity"
+          ],
+          "prerequisiteStepIds": [
+            "phy-step-1"
+          ],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "problem-sets",
+              "quiz",
+              "circuit-builds"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "practical-review",
+            "description": "Circuit analysis task with short explanations.",
+            "passingCriteria": "Meets all rubric criteria"
+          }
+        },
+        {
+          "id": "phy-step-3",
+          "title": "Electromagnetism and Matter",
+          "description": "Connect magnetic effects with particle models.",
+          "milestone": "Electromagnetism checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "phy-05-magnetism",
+            "phy-06-particles"
+          ],
+          "prerequisiteStepIds": [
+            "phy-step-2"
+          ],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "worked-examples",
+              "simulation-notes",
+              "quiz"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "problem-set",
+            "description": "Mixed calculations on transformers, pressure, and density.",
+            "passingCriteria": "70% mastery"
+          }
+        },
+        {
+          "id": "phy-step-4",
+          "title": "Atomic and Space Physics",
+          "description": "Consolidate nuclear physics and astronomy topics.",
+          "milestone": "Final synthesis checkpoint",
+          "recommendedWeeks": 3,
+          "chapterIds": [
+            "phy-07-atomic",
+            "phy-08-space"
+          ],
+          "prerequisiteStepIds": [
+            "phy-step-3"
+          ],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "exam-questions",
+              "graph-interpretation",
+              "quiz"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "mock-exam",
+            "description": "Full-length GCSE Physics mock paper.",
+            "passingCriteria": "Grade 5+ equivalent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chemistry-gcse-core",
+      "subjectId": "chemistry",
+      "title": "GCSE Chemistry Core Path",
+      "track": "Core",
+      "description": "Build chemistry competence through atomic structure, bonding, reactions, and analysis.",
+      "outcomes": [
+        "Use the periodic table to predict properties and reactions.",
+        "Explain bonding and structure in terms of particles.",
+        "Solve quantitative chemistry problems accurately.",
+        "Evaluate chemical processes with evidence."
+      ],
+      "steps": [
+        {
+          "id": "che-step-1",
+          "title": "Atomic Structure and Periodic Trends",
+          "description": "Understand atoms, isotopes, and periodic table trends.",
+          "milestone": "Periodic table checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "che-01-atomic-structure",
+            "che-02-periodic-table"
+          ],
+          "prerequisiteStepIds": [],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "flashcards",
+              "quiz",
+              "worked-examples"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "checkpoint-quiz",
+            "description": "Questions on atoms, electron shells, and group properties.",
+            "passingCriteria": "80% mastery"
+          }
+        },
+        {
+          "id": "che-step-2",
+          "title": "Bonding and Quantitative Chemistry",
+          "description": "Connect structure, bonding, and chemical calculations.",
+          "milestone": "Bonding and moles checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "che-03-bonding",
+            "che-04-quantitative"
+          ],
+          "prerequisiteStepIds": [
+            "che-step-1"
+          ],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "worked-examples",
+              "calculator-sheets",
+              "quiz"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "problem-set",
+            "description": "Mole and equation balancing assessment.",
+            "passingCriteria": "75% mastery"
+          }
+        },
+        {
+          "id": "che-step-3",
+          "title": "Reactions, Energy, and Rates",
+          "description": "Explore chemical changes, energy profiles, and reaction rates.",
+          "milestone": "Reactivity checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "che-05-chemical-changes",
+            "che-06-energy-changes",
+            "che-07-rates-equilibrium"
+          ],
+          "prerequisiteStepIds": [
+            "che-step-2"
+          ],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "lab-notes",
+              "graph-analysis",
+              "quiz"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "practical-review",
+            "description": "Explain rate experiments and energy profile diagrams.",
+            "passingCriteria": "Meets all rubric criteria"
+          }
+        },
+        {
+          "id": "che-step-4",
+          "title": "Organic, Analysis, and Atmosphere",
+          "description": "Apply chemistry to materials, analysis, and sustainability.",
+          "milestone": "Applied chemistry checkpoint",
+          "recommendedWeeks": 3,
+          "chapterIds": [
+            "che-08-organic",
+            "che-09-analysis",
+            "che-10-atmosphere"
+          ],
+          "prerequisiteStepIds": [
+            "che-step-3"
+          ],
+          "evidence": {
+            "examplesRequired": 10,
+            "evidenceTypes": [
+              "exam-questions",
+              "chromatography-report",
+              "quiz"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "mock-exam",
+            "description": "Full-length GCSE Chemistry mock paper.",
+            "passingCriteria": "Grade 5+ equivalent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mathematics-gcse-core",
+      "subjectId": "mathematics",
+      "title": "GCSE Mathematics Core Path",
+      "track": "Core",
+      "description": "Progress from number fluency to algebra, geometry, and statistics.",
+      "outcomes": [
+        "Manipulate numbers and algebra confidently.",
+        "Apply ratio, proportion, and geometry in context.",
+        "Interpret probability and statistical data accurately."
+      ],
+      "steps": [
+        {
+          "id": "math-step-1",
+          "title": "Number and Algebra",
+          "description": "Master calculations, indices, and algebraic manipulation.",
+          "milestone": "Algebra checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "math-01-number",
+            "math-02-algebra"
+          ],
+          "prerequisiteStepIds": [],
+          "evidence": {
+            "examplesRequired": 12,
+            "evidenceTypes": [
+              "worked-examples",
+              "quiz",
+              "practice-sets"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "checkpoint-quiz",
+            "description": "Mixed questions on number skills and algebra.",
+            "passingCriteria": "80% mastery"
+          }
+        },
+        {
+          "id": "math-step-2",
+          "title": "Ratio and Geometry",
+          "description": "Apply proportion and geometry to real problems.",
+          "milestone": "Geometry checkpoint",
+          "recommendedWeeks": 4,
+          "chapterIds": [
+            "math-03-ratio",
+            "math-04-geometry"
+          ],
+          "prerequisiteStepIds": [
+            "math-step-1"
+          ],
+          "evidence": {
+            "examplesRequired": 12,
+            "evidenceTypes": [
+              "diagram-solutions",
+              "problem-sets",
+              "quiz"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "problem-set",
+            "description": "Ratio and geometry assessment with worded answers.",
+            "passingCriteria": "75% mastery"
+          }
+        },
+        {
+          "id": "math-step-3",
+          "title": "Probability and Statistics",
+          "description": "Use probability models and interpret statistical data.",
+          "milestone": "Data interpretation checkpoint",
+          "recommendedWeeks": 3,
+          "chapterIds": [
+            "math-05-probability",
+            "math-06-statistics"
+          ],
+          "prerequisiteStepIds": [
+            "math-step-2"
+          ],
+          "evidence": {
+            "examplesRequired": 12,
+            "evidenceTypes": [
+              "data-analysis",
+              "quiz",
+              "exam-questions"
+            ],
+            "reviewType": "mentor-review"
+          },
+          "assessment": {
+            "type": "mock-exam",
+            "description": "Full-length GCSE Mathematics mock paper.",
+            "passingCriteria": "Grade 5+ equivalent"
+          }
+        }
+      ]
+    }
+  ]
+}

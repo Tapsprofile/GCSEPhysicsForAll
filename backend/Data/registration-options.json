@@ -1,0 +1,466 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-01",
+  "roles": [
+    {
+      "role": "student",
+      "displayName": "Student",
+      "description": "Learners enrolled in GCSE or professional courses with progress tracking and evidence submission.",
+      "requiredFields": [
+        {
+          "id": "firstName",
+          "label": "First name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Aisha",
+          "validation": "min:2|max:50"
+        },
+        {
+          "id": "lastName",
+          "label": "Last name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Khan",
+          "validation": "min:2|max:50"
+        },
+        {
+          "id": "dateOfBirth",
+          "label": "Date of birth",
+          "type": "date",
+          "required": true,
+          "placeholder": "2009-04-12",
+          "validation": "age:11-21"
+        },
+        {
+          "id": "email",
+          "label": "Email address",
+          "type": "email",
+          "required": true,
+          "placeholder": "student@example.com",
+          "validation": "email"
+        },
+        {
+          "id": "password",
+          "label": "Create password",
+          "type": "password",
+          "required": true,
+          "placeholder": "********",
+          "validation": "min:10|uppercase|number|symbol"
+        },
+        {
+          "id": "yearGroup",
+          "label": "Current year group",
+          "type": "select",
+          "required": true,
+          "placeholder": "Year 10",
+          "validation": "options:Year 9,Year 10,Year 11,Adult Learner"
+        },
+        {
+          "id": "preferredSubjects",
+          "label": "Preferred subjects",
+          "type": "multiselect",
+          "required": true,
+          "placeholder": "Physics, Chemistry, Mathematics",
+          "validation": "min:1"
+        }
+      ],
+      "optionalFields": [
+        {
+          "id": "phone",
+          "label": "Mobile number",
+          "type": "phone",
+          "required": false,
+          "placeholder": "+44 7700 900123",
+          "validation": "phone"
+        },
+        {
+          "id": "learningGoals",
+          "label": "Learning goals",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Pass GCSE Physics with Grade 7 or above.",
+          "validation": "max:500"
+        },
+        {
+          "id": "accessibilityNeeds",
+          "label": "Accessibility needs",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Extra time, larger fonts, screen reader support.",
+          "validation": "max:300"
+        }
+      ],
+      "verificationSteps": [
+        {
+          "id": "email-verification",
+          "label": "Verify email",
+          "description": "Confirm email via one-time code.",
+          "required": true
+        },
+        {
+          "id": "guardian-consent",
+          "label": "Guardian consent (under 16)",
+          "description": "Parent or guardian must approve the account.",
+          "required": false
+        }
+      ],
+      "consents": [
+        {
+          "id": "terms",
+          "label": "Agree to terms of service",
+          "appliesTo": "all",
+          "required": true
+        },
+        {
+          "id": "privacy",
+          "label": "Agree to privacy policy",
+          "appliesTo": "all",
+          "required": true
+        },
+        {
+          "id": "guardian-consent",
+          "label": "Parent/guardian consent (under 16)",
+          "appliesTo": "under-16",
+          "required": true
+        }
+      ],
+      "linking": {
+        "canLinkStudents": false,
+        "linkMethod": "parent-invite",
+        "linkCodeLength": 6,
+        "notes": "Students can request a parent invite code to link accounts."
+      },
+      "capacity": {
+        "maxStudents": 0,
+        "maxWeeklyReviews": 0,
+        "notes": "Not applicable for student accounts."
+      },
+      "supportedSubjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ]
+    },
+    {
+      "role": "parent",
+      "displayName": "Parent/Guardian",
+      "description": "Monitors learner progress, manages consent, and supports communications.",
+      "requiredFields": [
+        {
+          "id": "firstName",
+          "label": "First name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Liam",
+          "validation": "min:2|max:50"
+        },
+        {
+          "id": "lastName",
+          "label": "Last name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Patel",
+          "validation": "min:2|max:50"
+        },
+        {
+          "id": "email",
+          "label": "Email address",
+          "type": "email",
+          "required": true,
+          "placeholder": "parent@example.com",
+          "validation": "email"
+        },
+        {
+          "id": "phone",
+          "label": "Mobile number",
+          "type": "phone",
+          "required": true,
+          "placeholder": "+44 7700 900456",
+          "validation": "phone"
+        },
+        {
+          "id": "relationshipToStudent",
+          "label": "Relationship to student",
+          "type": "select",
+          "required": true,
+          "placeholder": "Parent",
+          "validation": "options:Parent,Guardian,Carer"
+        }
+      ],
+      "optionalFields": [
+        {
+          "id": "address",
+          "label": "Home address",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Address line 1, postcode",
+          "validation": "max:200"
+        },
+        {
+          "id": "preferredContact",
+          "label": "Preferred contact method",
+          "type": "select",
+          "required": false,
+          "placeholder": "Email",
+          "validation": "options:Email,Phone,SMS"
+        }
+      ],
+      "verificationSteps": [
+        {
+          "id": "email-verification",
+          "label": "Verify email",
+          "description": "Confirm email via one-time code.",
+          "required": true
+        },
+        {
+          "id": "phone-verification",
+          "label": "Verify phone",
+          "description": "Confirm phone via SMS code.",
+          "required": true
+        }
+      ],
+      "consents": [
+        {
+          "id": "terms",
+          "label": "Agree to terms of service",
+          "appliesTo": "all",
+          "required": true
+        },
+        {
+          "id": "privacy",
+          "label": "Agree to privacy policy",
+          "appliesTo": "all",
+          "required": true
+        },
+        {
+          "id": "safeguarding",
+          "label": "Safeguarding policy acknowledgement",
+          "appliesTo": "all",
+          "required": true
+        }
+      ],
+      "linking": {
+        "canLinkStudents": true,
+        "linkMethod": "student-code-or-create",
+        "linkCodeLength": 6,
+        "notes": "Parents can link to an existing student using a code or create a new learner profile."
+      },
+      "capacity": {
+        "maxStudents": 0,
+        "maxWeeklyReviews": 0,
+        "notes": "Not applicable for parent accounts."
+      },
+      "supportedSubjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics"
+      ]
+    },
+    {
+      "role": "teacher",
+      "displayName": "Teacher/Mentor",
+      "description": "Provides subject expertise, reviews evidence, and mentors learners.",
+      "requiredFields": [
+        {
+          "id": "firstName",
+          "label": "First name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Grace",
+          "validation": "min:2|max:50"
+        },
+        {
+          "id": "lastName",
+          "label": "Last name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Hughes",
+          "validation": "min:2|max:50"
+        },
+        {
+          "id": "email",
+          "label": "Work email",
+          "type": "email",
+          "required": true,
+          "placeholder": "teacher@example.com",
+          "validation": "email"
+        },
+        {
+          "id": "phone",
+          "label": "Mobile number",
+          "type": "phone",
+          "required": true,
+          "placeholder": "+44 7700 900789",
+          "validation": "phone"
+        },
+        {
+          "id": "qualifications",
+          "label": "Qualifications",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "PGCE Physics, BSc Physics, 5 years teaching",
+          "validation": "min:10|max:300"
+        },
+        {
+          "id": "experienceYears",
+          "label": "Years of experience",
+          "type": "number",
+          "required": true,
+          "placeholder": "5",
+          "validation": "min:0|max:40"
+        },
+        {
+          "id": "subjectExpertise",
+          "label": "Subject expertise",
+          "type": "multiselect",
+          "required": true,
+          "placeholder": "Physics, Chemistry, Mathematics",
+          "validation": "min:1"
+        }
+      ],
+      "optionalFields": [
+        {
+          "id": "bio",
+          "label": "Short bio",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Specialist in exam technique and conceptual explanations.",
+          "validation": "max:400"
+        },
+        {
+          "id": "availability",
+          "label": "Weekly availability",
+          "type": "text",
+          "required": false,
+          "placeholder": "Mon/Wed/Fri 4-8pm",
+          "validation": "max:100"
+        },
+        {
+          "id": "references",
+          "label": "Professional references",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Name and contact for two referees.",
+          "validation": "max:300"
+        }
+      ],
+      "verificationSteps": [
+        {
+          "id": "email-verification",
+          "label": "Verify email",
+          "description": "Confirm email via one-time code.",
+          "required": true
+        },
+        {
+          "id": "identity-check",
+          "label": "Identity verification",
+          "description": "Government-issued ID check.",
+          "required": true
+        },
+        {
+          "id": "dbs-check",
+          "label": "DBS safeguarding check",
+          "description": "Required for working with minors.",
+          "required": true
+        },
+        {
+          "id": "subject-approval",
+          "label": "Subject approval",
+          "description": "Academic lead confirms subject expertise.",
+          "required": true
+        }
+      ],
+      "consents": [
+        {
+          "id": "terms",
+          "label": "Agree to mentor terms",
+          "appliesTo": "all",
+          "required": true
+        },
+        {
+          "id": "privacy",
+          "label": "Agree to privacy policy",
+          "appliesTo": "all",
+          "required": true
+        },
+        {
+          "id": "code-of-conduct",
+          "label": "Agree to code of conduct",
+          "appliesTo": "all",
+          "required": true
+        }
+      ],
+      "linking": {
+        "canLinkStudents": false,
+        "linkMethod": "assignment-only",
+        "linkCodeLength": 0,
+        "notes": "Students are assigned after verification and capacity review."
+      },
+      "capacity": {
+        "maxStudents": 20,
+        "maxWeeklyReviews": 60,
+        "notes": "Default cap aligns to a 20:1 student-teacher ratio."
+      },
+      "supportedSubjects": [
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "DVLA Theory",
+        "Nursing Fundamentals"
+      ]
+    }
+  ],
+  "stateFlow": {
+    "states": [
+      {
+        "name": "draft",
+        "description": "Registration started but not yet submitted.",
+        "nextStates": [
+          "submitted"
+        ]
+      },
+      {
+        "name": "submitted",
+        "description": "Registration submitted and awaiting verification.",
+        "nextStates": [
+          "pending_verification",
+          "rejected"
+        ]
+      },
+      {
+        "name": "pending_verification",
+        "description": "Verification checks are in progress.",
+        "nextStates": [
+          "active",
+          "rejected"
+        ]
+      },
+      {
+        "name": "active",
+        "description": "Account is active and fully verified.",
+        "nextStates": [
+          "suspended",
+          "closed"
+        ]
+      },
+      {
+        "name": "suspended",
+        "description": "Account temporarily suspended for review.",
+        "nextStates": [
+          "active",
+          "closed"
+        ]
+      },
+      {
+        "name": "closed",
+        "description": "Account closed at request or due to inactivity.",
+        "nextStates": []
+      },
+      {
+        "name": "rejected",
+        "description": "Registration rejected due to failed verification.",
+        "nextStates": []
+      }
+    ]
+  }
+}

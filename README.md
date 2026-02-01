@@ -96,6 +96,10 @@ The API exposes:
 - GET /api/subjects/{subjectId}
 - GET /api/subjects/{subjectId}/chapters
 - GET /api/subjects/{subjectId}/chapters/{chapterId}
+- GET /api/registration/options
+- GET /api/learning-paths
+- GET /api/subjects/{subjectId}/learning-paths
+- GET /api/learning-paths/{pathId}
 
 ### Frontend (Vue 3)
 ```bash
@@ -117,3 +121,12 @@ backend/Data/subjects.json
 
 This includes GCSE Physics, Chemistry, and Mathematics chapters with lesson
 summaries, objectives, and widget references.
+
+Registration flows and learning paths are defined in:
+```
+backend/Data/registration-options.json
+backend/Data/learning-paths.json
+```
+
+See REGISTRATION_AND_LEARNING_PATHS.md for the full registration and learning
+path specification.

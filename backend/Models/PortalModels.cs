@@ -9,6 +9,7 @@ public sealed class Subject
 {
     public string Id { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
+    public string Domain { get; set; } = string.Empty;
     public string Level { get; set; } = string.Empty;
     public string KeyStage { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
