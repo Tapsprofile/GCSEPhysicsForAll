@@ -78,3 +78,42 @@ and a Core-and-Plugin model.
 - Realtime: SignalR hub for reviews and messaging.
 - Deployment: Containerized services with environment-based config and
   scalable horizontal workers.
+
+## Repository Layout
+- backend/ - .NET 8 minimal API that serves subject, chapter, and lesson data.
+- frontend/ - Vue 3 (Vite) SPA that consumes the API and unlocks chapters
+  sequentially.
+
+## Local Development
+
+### Backend (API)
+```bash
+dotnet run --project backend/ModularEducationPortal.Backend.csproj
+```
+
+The API exposes:
+- GET /api/subjects
+- GET /api/subjects/{subjectId}
+- GET /api/subjects/{subjectId}/chapters
+- GET /api/subjects/{subjectId}/chapters/{chapterId}
+
+### Frontend (Vue 3)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Optional environment variable for API base URL:
+```bash
+VITE_API_BASE=http://localhost:5000
+```
+
+## Content Data
+Subject coverage and chapter sequencing are defined in:
+```
+backend/Data/subjects.json
+```
+
+This includes GCSE Physics, Chemistry, and Mathematics chapters with lesson
+summaries, objectives, and widget references.

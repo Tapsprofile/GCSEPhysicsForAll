@@ -1,0 +1,948 @@
+{
+  "subjects": [
+    {
+      "id": "physics",
+      "title": "Physics",
+      "level": "GCSE",
+      "keyStage": "KS4",
+      "description": "Mechanics, energy, waves, electricity, and the fundamentals of matter and space.",
+      "chapters": [
+        {
+          "id": "phy-01-forces",
+          "order": 1,
+          "title": "Forces and Motion",
+          "summary": "Newton's laws, motion graphs, momentum, and stopping distances.",
+          "learningObjectives": [
+            "Use speed, velocity, and acceleration equations.",
+            "Interpret distance-time and velocity-time graphs.",
+            "Apply momentum conservation and braking concepts."
+          ],
+          "lessons": [
+            {
+              "id": "phy-01-01",
+              "title": "Scalars and vectors",
+              "summary": "Identify scalar and vector quantities and use vector diagrams.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "phy-01-02",
+              "title": "Motion equations and graphs",
+              "summary": "Apply SUVAT equations and interpret motion graphs.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-01-03",
+              "title": "Forces, momentum, and stopping",
+              "summary": "Calculate momentum, investigate impulse, and explain stopping distance.",
+              "estimatedMinutes": 40
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Forces check-in",
+              "purpose": "Quick retrieval practice on key definitions."
+            },
+            {
+              "type": "graphing",
+              "label": "Motion graphs",
+              "purpose": "Plot and interpret distance-time and velocity-time graphs."
+            }
+          ]
+        },
+        {
+          "id": "phy-02-energy",
+          "order": 2,
+          "title": "Energy and Energy Resources",
+          "summary": "Energy stores, transfers, efficiency, and power calculations.",
+          "learningObjectives": [
+            "Describe energy stores and transfers.",
+            "Calculate power, work done, and efficiency.",
+            "Evaluate energy resources and their impacts."
+          ],
+          "lessons": [
+            {
+              "id": "phy-02-01",
+              "title": "Energy stores and transfers",
+              "summary": "Use energy diagrams and identify transfer pathways.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "phy-02-02",
+              "title": "Work, power, and efficiency",
+              "summary": "Solve problems involving work done and power output.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-02-03",
+              "title": "Energy resources",
+              "summary": "Compare renewable and non-renewable resources.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "simulation",
+              "label": "Energy transfer explorer",
+              "purpose": "Experiment with energy store changes and efficiency."
+            }
+          ]
+        },
+        {
+          "id": "phy-03-waves",
+          "order": 3,
+          "title": "Waves and Electromagnetic Spectrum",
+          "summary": "Wave properties, sound and light, and EM spectrum applications.",
+          "learningObjectives": [
+            "Use wave speed, frequency, and wavelength relationships.",
+            "Explain reflection, refraction, and diffraction.",
+            "Describe EM wave uses and hazards."
+          ],
+          "lessons": [
+            {
+              "id": "phy-03-01",
+              "title": "Wave properties",
+              "summary": "Define amplitude, wavelength, frequency, and period.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "phy-03-02",
+              "title": "Sound and light",
+              "summary": "Explore echo, ultrasound, and refraction in light.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-03-03",
+              "title": "Electromagnetic spectrum",
+              "summary": "Identify EM waves and their practical uses.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Wave calculations",
+              "purpose": "Practice wave speed and frequency calculations."
+            }
+          ]
+        },
+        {
+          "id": "phy-04-electricity",
+          "order": 4,
+          "title": "Electricity",
+          "summary": "Circuits, resistance, power, and domestic electricity.",
+          "learningObjectives": [
+            "Apply current, voltage, and resistance equations.",
+            "Interpret circuit symbols and series/parallel behavior.",
+            "Calculate power and energy in electrical devices."
+          ],
+          "lessons": [
+            {
+              "id": "phy-04-01",
+              "title": "Charge, current, and potential difference",
+              "summary": "Relate charge flow to current and voltage in circuits.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-04-02",
+              "title": "Resistance and I-V characteristics",
+              "summary": "Analyze resistance in wires, resistors, and diodes.",
+              "estimatedMinutes": 40
+            },
+            {
+              "id": "phy-04-03",
+              "title": "Domestic electricity",
+              "summary": "Safety features, fuses, and power calculations.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "circuit-builder",
+              "label": "Series and parallel circuits",
+              "purpose": "Build circuits and observe current and voltage."
+            }
+          ]
+        },
+        {
+          "id": "phy-05-magnetism",
+          "order": 5,
+          "title": "Magnetism and Electromagnetism",
+          "summary": "Magnetic fields, motors, generators, and transformers.",
+          "learningObjectives": [
+            "Describe magnetic fields and field lines.",
+            "Explain motor and generator effects.",
+            "Use transformer equations and applications."
+          ],
+          "lessons": [
+            {
+              "id": "phy-05-01",
+              "title": "Magnetic fields and forces",
+              "summary": "Map magnetic fields and predict force directions.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "phy-05-02",
+              "title": "Motors and generators",
+              "summary": "Explain how electric motors and generators work.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-05-03",
+              "title": "Transformers and the grid",
+              "summary": "Calculate step-up and step-down transformers.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "simulation",
+              "label": "Motor effect lab",
+              "purpose": "Explore current, magnetic field, and force relationships."
+            }
+          ]
+        },
+        {
+          "id": "phy-06-particles",
+          "order": 6,
+          "title": "Particle Model of Matter",
+          "summary": "States of matter, density, pressure, and gas laws.",
+          "learningObjectives": [
+            "Describe particle arrangements in solids, liquids, and gases.",
+            "Calculate density and pressure in fluids.",
+            "Apply gas pressure and temperature relationships."
+          ],
+          "lessons": [
+            {
+              "id": "phy-06-01",
+              "title": "States of matter",
+              "summary": "Compare particle models across states and changes.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "phy-06-02",
+              "title": "Density and pressure",
+              "summary": "Solve density problems and explain pressure in fluids.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-06-03",
+              "title": "Gas laws",
+              "summary": "Link temperature, pressure, and volume for gases.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Density practice",
+              "purpose": "Practice density and pressure calculations."
+            }
+          ]
+        },
+        {
+          "id": "phy-07-atomic",
+          "order": 7,
+          "title": "Atomic Structure",
+          "summary": "Radioactivity, half-life, nuclear equations, and risks.",
+          "learningObjectives": [
+            "Describe atomic structure and isotopes.",
+            "Write nuclear equations for decay.",
+            "Interpret half-life graphs and evaluate risks."
+          ],
+          "lessons": [
+            {
+              "id": "phy-07-01",
+              "title": "Atoms and isotopes",
+              "summary": "Identify protons, neutrons, and electrons in isotopes.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "phy-07-02",
+              "title": "Radioactive decay",
+              "summary": "Compare alpha, beta, and gamma radiation.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "phy-07-03",
+              "title": "Half-life and applications",
+              "summary": "Use half-life calculations in medical and archaeological contexts.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "graphing",
+              "label": "Half-life simulator",
+              "purpose": "Visualize exponential decay and interpret graphs."
+            }
+          ]
+        },
+        {
+          "id": "phy-08-space",
+          "order": 8,
+          "title": "Space Physics",
+          "summary": "Solar system, orbits, life cycle of stars, and the universe.",
+          "learningObjectives": [
+            "Describe planetary orbits and orbital speed.",
+            "Explain the life cycle of stars.",
+            "Outline evidence for the expanding universe."
+          ],
+          "lessons": [
+            {
+              "id": "phy-08-01",
+              "title": "Solar system and orbits",
+              "summary": "Relate orbital motion to gravitational forces.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "phy-08-02",
+              "title": "Stars and galaxies",
+              "summary": "Compare main sequence stars, red giants, and supernovae.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "phy-08-03",
+              "title": "The expanding universe",
+              "summary": "Use red-shift to explain the Big Bang theory.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Space physics recap",
+              "purpose": "Test key terms and concepts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemistry",
+      "title": "Chemistry",
+      "level": "GCSE",
+      "keyStage": "KS4",
+      "description": "Structure of matter, bonding, reactions, and the chemistry of the atmosphere.",
+      "chapters": [
+        {
+          "id": "che-01-atomic-structure",
+          "order": 1,
+          "title": "Atomic Structure",
+          "summary": "Atoms, isotopes, electron configuration, and the periodic table.",
+          "learningObjectives": [
+            "Identify subatomic particles and isotopes.",
+            "Describe electron shells and configurations.",
+            "Relate atomic number to periodic table position."
+          ],
+          "lessons": [
+            {
+              "id": "che-01-01",
+              "title": "Atoms and isotopes",
+              "summary": "Define relative atomic mass and isotopic notation.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-01-02",
+              "title": "Electron configuration",
+              "summary": "Draw electron shells for the first 20 elements.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "che-01-03",
+              "title": "Periodic trends",
+              "summary": "Connect electron structure to table groups and periods.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Atomic basics",
+              "purpose": "Recall subatomic particles and isotopes."
+            }
+          ]
+        },
+        {
+          "id": "che-02-periodic-table",
+          "order": 2,
+          "title": "Periodic Table",
+          "summary": "Group properties, metals, non-metals, and halogens.",
+          "learningObjectives": [
+            "Describe group 1, 7, and 0 properties.",
+            "Explain trends in reactivity.",
+            "Relate position to metallic character."
+          ],
+          "lessons": [
+            {
+              "id": "che-02-01",
+              "title": "Group 1 and group 7",
+              "summary": "Compare reactivity and reactions with water.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-02-02",
+              "title": "Noble gases",
+              "summary": "Explain inertness and uses of noble gases.",
+              "estimatedMinutes": 20
+            },
+            {
+              "id": "che-02-03",
+              "title": "Metals and non-metals",
+              "summary": "Identify properties and typical reactions.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "flashcards",
+              "label": "Group trends",
+              "purpose": "Reinforce group properties and trends."
+            }
+          ]
+        },
+        {
+          "id": "che-03-bonding",
+          "order": 3,
+          "title": "Bonding, Structure, and Properties",
+          "summary": "Ionic, covalent, metallic bonding and material properties.",
+          "learningObjectives": [
+            "Compare ionic, covalent, and metallic bonding.",
+            "Link structure to conductivity and melting point.",
+            "Describe simple molecules and giant lattices."
+          ],
+          "lessons": [
+            {
+              "id": "che-03-01",
+              "title": "Ionic and covalent bonding",
+              "summary": "Describe electron transfer and sharing.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "che-03-02",
+              "title": "Metallic bonding and alloys",
+              "summary": "Explain delocalized electrons and alloy properties.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "che-03-03",
+              "title": "Structure and properties",
+              "summary": "Relate structure to melting point and conductivity.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "diagram",
+              "label": "Bonding builder",
+              "purpose": "Visualize electron transfer and sharing."
+            }
+          ]
+        },
+        {
+          "id": "che-04-quantitative",
+          "order": 4,
+          "title": "Quantitative Chemistry",
+          "summary": "Moles, equations, concentration, and yields.",
+          "learningObjectives": [
+            "Use the mole and Avogadro constant.",
+            "Balance equations and calculate reacting masses.",
+            "Calculate concentration and percentage yield."
+          ],
+          "lessons": [
+            {
+              "id": "che-04-01",
+              "title": "The mole",
+              "summary": "Convert between mass, moles, and particles.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "che-04-02",
+              "title": "Chemical calculations",
+              "summary": "Solve reacting mass and limiting reagent problems.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "che-04-03",
+              "title": "Concentration and yield",
+              "summary": "Calculate solution concentration and yields.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "calculator",
+              "label": "Mole practice",
+              "purpose": "Guided calculations with step hints."
+            }
+          ]
+        },
+        {
+          "id": "che-05-chemical-changes",
+          "order": 5,
+          "title": "Chemical Changes",
+          "summary": "Reactivity series, acids, salts, and electrolysis.",
+          "learningObjectives": [
+            "Use the reactivity series to predict reactions.",
+            "Describe acid reactions and salt preparation.",
+            "Explain electrolysis of molten and aqueous solutions."
+          ],
+          "lessons": [
+            {
+              "id": "che-05-01",
+              "title": "Reactivity and displacement",
+              "summary": "Predict metal displacement and redox reactions.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-05-02",
+              "title": "Acids, bases, and salts",
+              "summary": "Write ionic equations and prepare salts.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "che-05-03",
+              "title": "Electrolysis",
+              "summary": "Describe ion movement and products of electrolysis.",
+              "estimatedMinutes": 35
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Electrolysis checkpoints",
+              "purpose": "Practice electrode products and half-equations."
+            }
+          ]
+        },
+        {
+          "id": "che-06-energy-changes",
+          "order": 6,
+          "title": "Energy Changes",
+          "summary": "Exothermic and endothermic reactions and energy profiles.",
+          "learningObjectives": [
+            "Identify exothermic and endothermic reactions.",
+            "Interpret reaction profile diagrams.",
+            "Describe bond energy and activation energy."
+          ],
+          "lessons": [
+            {
+              "id": "che-06-01",
+              "title": "Reaction energy profiles",
+              "summary": "Draw and label reaction energy diagrams.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "che-06-02",
+              "title": "Bond energies",
+              "summary": "Calculate energy changes using bond energies.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-06-03",
+              "title": "Energy in cells and solutions",
+              "summary": "Investigate temperature changes in reactions.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "lab",
+              "label": "Temperature change",
+              "purpose": "Record and analyze temperature change data."
+            }
+          ]
+        },
+        {
+          "id": "che-07-rates-equilibrium",
+          "order": 7,
+          "title": "Rates and Equilibrium",
+          "summary": "Collision theory, factors affecting rate, and equilibrium shifts.",
+          "learningObjectives": [
+            "Use collision theory to explain reaction rate.",
+            "Analyze factors such as temperature and catalysts.",
+            "Describe reversible reactions and equilibrium."
+          ],
+          "lessons": [
+            {
+              "id": "che-07-01",
+              "title": "Rates of reaction",
+              "summary": "Measure rate using gas, mass, and precipitation methods.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-07-02",
+              "title": "Factors affecting rate",
+              "summary": "Explain how concentration, surface area, and catalysts affect rate.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "che-07-03",
+              "title": "Reversible reactions",
+              "summary": "Use Le Chatelier's principle to predict shifts.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "graphing",
+              "label": "Rate graphs",
+              "purpose": "Compare rate-time curves for different conditions."
+            }
+          ]
+        },
+        {
+          "id": "che-08-organic",
+          "order": 8,
+          "title": "Organic Chemistry",
+          "summary": "Hydrocarbons, polymers, and key organic reactions.",
+          "learningObjectives": [
+            "Identify alkanes, alkenes, and alcohols.",
+            "Describe cracking and polymerization.",
+            "Explain combustion and related pollutants."
+          ],
+          "lessons": [
+            {
+              "id": "che-08-01",
+              "title": "Alkanes and alkenes",
+              "summary": "Name simple hydrocarbons and describe bonding.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-08-02",
+              "title": "Crude oil and cracking",
+              "summary": "Explain fractional distillation and cracking.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-08-03",
+              "title": "Polymers",
+              "summary": "Compare addition and condensation polymers.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "diagram",
+              "label": "Polymer mapper",
+              "purpose": "Build and label polymer structures."
+            }
+          ]
+        },
+        {
+          "id": "che-09-analysis",
+          "order": 9,
+          "title": "Chemical Analysis",
+          "summary": "Pure substances, chromatography, and gas tests.",
+          "learningObjectives": [
+            "Identify tests for ions and gases.",
+            "Interpret chromatography data.",
+            "Explain purity and formulations."
+          ],
+          "lessons": [
+            {
+              "id": "che-09-01",
+              "title": "Purity and formulations",
+              "summary": "Explain how purity is measured and defined.",
+              "estimatedMinutes": 20
+            },
+            {
+              "id": "che-09-02",
+              "title": "Chromatography",
+              "summary": "Calculate Rf values and interpret chromatograms.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-09-03",
+              "title": "Gas and ion tests",
+              "summary": "Apply test results to identify common gases and ions.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "lab",
+              "label": "Chromatography lab",
+              "purpose": "Record and compare chromatogram results."
+            }
+          ]
+        },
+        {
+          "id": "che-10-atmosphere",
+          "order": 10,
+          "title": "Chemistry of the Atmosphere and Resources",
+          "summary": "Atmospheric composition, greenhouse gases, and sustainability.",
+          "learningObjectives": [
+            "Describe the evolution and composition of the atmosphere.",
+            "Explain greenhouse effect and climate change evidence.",
+            "Evaluate sustainable resource use and recycling."
+          ],
+          "lessons": [
+            {
+              "id": "che-10-01",
+              "title": "Earth's atmosphere",
+              "summary": "Describe changes in atmospheric composition over time.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "che-10-02",
+              "title": "Climate change",
+              "summary": "Explain greenhouse gases and evidence for global warming.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "che-10-03",
+              "title": "Using resources",
+              "summary": "Evaluate life-cycle assessments and recycling strategies.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "debate",
+              "label": "Sustainability debate",
+              "purpose": "Evaluate trade-offs in resource management."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mathematics",
+      "title": "Mathematics",
+      "level": "GCSE",
+      "keyStage": "KS4",
+      "description": "Number, algebra, geometry, probability, and statistics.",
+      "chapters": [
+        {
+          "id": "math-01-number",
+          "order": 1,
+          "title": "Number",
+          "summary": "Integers, fractions, indices, and standard form.",
+          "learningObjectives": [
+            "Use factors, multiples, and primes.",
+            "Perform calculations with fractions and indices.",
+            "Convert between ordinary numbers and standard form."
+          ],
+          "lessons": [
+            {
+              "id": "math-01-01",
+              "title": "Factors and primes",
+              "summary": "Use HCF and LCM in problem solving.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "math-01-02",
+              "title": "Fractions, decimals, and percentages",
+              "summary": "Convert between forms and solve percentage problems.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "math-01-03",
+              "title": "Indices and standard form",
+              "summary": "Apply index laws and calculate with standard form.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "quiz",
+              "label": "Number fluency",
+              "purpose": "Practice number skills and calculations."
+            }
+          ]
+        },
+        {
+          "id": "math-02-algebra",
+          "order": 2,
+          "title": "Algebra",
+          "summary": "Expressions, equations, sequences, and graphs.",
+          "learningObjectives": [
+            "Manipulate algebraic expressions.",
+            "Solve linear and quadratic equations.",
+            "Interpret and draw graphs."
+          ],
+          "lessons": [
+            {
+              "id": "math-02-01",
+              "title": "Expressions and formulae",
+              "summary": "Expand, factorise, and substitute into formulae.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "math-02-02",
+              "title": "Equations and inequalities",
+              "summary": "Solve linear and quadratic equations and inequalities.",
+              "estimatedMinutes": 40
+            },
+            {
+              "id": "math-02-03",
+              "title": "Sequences and graphs",
+              "summary": "Generate sequences and plot linear graphs.",
+              "estimatedMinutes": 35
+            }
+          ],
+          "widgets": [
+            {
+              "type": "graphing",
+              "label": "Graph sketcher",
+              "purpose": "Plot linear and quadratic graphs."
+            }
+          ]
+        },
+        {
+          "id": "math-03-ratio",
+          "order": 3,
+          "title": "Ratio, Proportion, and Rates",
+          "summary": "Ratio, proportion, scaling, and compound measures.",
+          "learningObjectives": [
+            "Simplify and share ratios.",
+            "Solve direct and inverse proportion problems.",
+            "Apply compound measures such as speed and density."
+          ],
+          "lessons": [
+            {
+              "id": "math-03-01",
+              "title": "Ratio and proportion",
+              "summary": "Solve ratio problems and apply proportion.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "math-03-02",
+              "title": "Rates of change",
+              "summary": "Work with speed, density, and pressure.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "math-03-03",
+              "title": "Growth and decay",
+              "summary": "Use multipliers and percentage change.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "calculator",
+              "label": "Ratio helper",
+              "purpose": "Step-by-step ratio and proportion practice."
+            }
+          ]
+        },
+        {
+          "id": "math-04-geometry",
+          "order": 4,
+          "title": "Geometry and Measures",
+          "summary": "Angle rules, constructions, trigonometry, and area.",
+          "learningObjectives": [
+            "Apply angle facts in parallel lines and polygons.",
+            "Use Pythagoras and trigonometry.",
+            "Calculate perimeter, area, and volume."
+          ],
+          "lessons": [
+            {
+              "id": "math-04-01",
+              "title": "Angles and constructions",
+              "summary": "Use angle rules and construct accurate diagrams.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "math-04-02",
+              "title": "Pythagoras and trigonometry",
+              "summary": "Solve right-angled triangle problems.",
+              "estimatedMinutes": 40
+            },
+            {
+              "id": "math-04-03",
+              "title": "Area, volume, and surface area",
+              "summary": "Calculate areas and volumes of common shapes.",
+              "estimatedMinutes": 35
+            }
+          ],
+          "widgets": [
+            {
+              "type": "diagram",
+              "label": "Shape explorer",
+              "purpose": "Visualize shapes and their measures."
+            }
+          ]
+        },
+        {
+          "id": "math-05-probability",
+          "order": 5,
+          "title": "Probability",
+          "summary": "Basic probability, combined events, and tree diagrams.",
+          "learningObjectives": [
+            "Calculate probabilities of events.",
+            "Use frequency tables and relative frequency.",
+            "Construct and interpret tree diagrams."
+          ],
+          "lessons": [
+            {
+              "id": "math-05-01",
+              "title": "Probability basics",
+              "summary": "Define probability and use outcome spaces.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "math-05-02",
+              "title": "Combined events",
+              "summary": "Solve probability with Venn and tree diagrams.",
+              "estimatedMinutes": 35
+            },
+            {
+              "id": "math-05-03",
+              "title": "Experimental probability",
+              "summary": "Compare experimental and theoretical probability.",
+              "estimatedMinutes": 25
+            }
+          ],
+          "widgets": [
+            {
+              "type": "simulation",
+              "label": "Chance simulator",
+              "purpose": "Run repeated trials and compare outcomes."
+            }
+          ]
+        },
+        {
+          "id": "math-06-statistics",
+          "order": 6,
+          "title": "Statistics",
+          "summary": "Data collection, averages, and graphs.",
+          "learningObjectives": [
+            "Select and interpret data displays.",
+            "Calculate mean, median, mode, and range.",
+            "Use scatter graphs and correlation."
+          ],
+          "lessons": [
+            {
+              "id": "math-06-01",
+              "title": "Data collection and sampling",
+              "summary": "Understand sampling methods and bias.",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "math-06-02",
+              "title": "Averages and spread",
+              "summary": "Calculate averages and measure spread.",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "math-06-03",
+              "title": "Graphs and correlation",
+              "summary": "Use scatter graphs to discuss correlation.",
+              "estimatedMinutes": 30
+            }
+          ],
+          "widgets": [
+            {
+              "type": "graphing",
+              "label": "Data visualizer",
+              "purpose": "Plot data and interpret trends."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
