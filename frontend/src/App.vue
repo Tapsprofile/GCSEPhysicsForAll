@@ -1,0 +1,385 @@
+<template>
+  <div class="app">
+    <header class="header">
+      <div>
+        <p class="kicker">GCSE Modular Education Portal</p>
+        <h1>Physics, Chemistry, and Mathematics</h1>
+        <p class="subtitle">
+          Content is data-driven and unlocks sequentially as chapters are completed.
+        </p>
+      </div>
+      <div class="status" v-if="statusMessage">
+        {{ statusMessage }}
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Subjects</h2>
+        <div v-if="subjects.length === 0" class="empty-state">
+          No subjects available yet.
+        </div>
+        <ul class="list">
+          <li v-for="subject in subjects" :key="subject.id">
+            <button
+              class="list-button"
+              :class="{ active: selectedSubject?.id === subject.id }"
+              @click="selectSubject(subject)"
+            >
+              <span class="list-title">{{ subject.title }}</span>
+              <span class="list-meta">{{ subject.chapterCount }} chapters</span>
+            </button>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Chapters</h2>
+        <div v-if="!selectedSubject" class="empty-state">
+          Select a subject to view chapters.
+        </div>
+        <ul v-else class="list">
+          <li v-for="chapter in orderedChapters" :key="chapter.id">
+            <button
+              class="list-button"
+              :class="{
+                active: selectedChapter?.id === chapter.id,
+                locked: !isUnlocked(chapter)
+              }"
+              :disabled="!isUnlocked(chapter)"
+              @click="selectChapter(chapter)"
+            >
+              <span class="list-title">
+                {{ chapter.order }}. {{ chapter.title }}
+              </span>
+              <span class="list-meta">
+                {{ chapter.lessonCount }} lessons
+                <span v-if="isCompleted(chapter)" class="chip success">Completed</span>
+                <span v-else-if="!isUnlocked(chapter)" class="chip muted">Locked</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel detail">
+        <h2>Chapter Detail</h2>
+        <div v-if="!selectedChapter" class="empty-state">
+          Select a chapter to see learning objectives and lessons.
+        </div>
+        <div v-else-if="chapterDetail" class="detail-content">
+          <div class="detail-header">
+            <div>
+              <h3>{{ chapterDetail.title }}</h3>
+              <p class="summary">{{ chapterDetail.summary }}</p>
+            </div>
+            <button class="primary" @click="markComplete" :disabled="isCompleted(chapterDetail)">
+              {{ isCompleted(chapterDetail) ? "Completed" : "Mark chapter complete" }}
+            </button>
+          </div>
+
+          <section>
+            <h4>Learning Objectives</h4>
+            <ul class="bullet-list">
+              <li v-for="objective in chapterDetail.learningObjectives" :key="objective">
+                {{ objective }}
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Lessons</h4>
+            <div class="cards">
+              <div v-for="lesson in chapterDetail.lessons" :key="lesson.id" class="card">
+                <div>
+                  <h5>{{ lesson.title }}</h5>
+                  <p>{{ lesson.summary }}</p>
+                </div>
+                <span class="chip">{{ lesson.estimatedMinutes }} min</span>
+              </div>
+            </div>
+          </section>
+
+          <section v-if="chapterDetail.widgets?.length">
+            <h4>Widgets</h4>
+            <div class="cards">
+              <div v-for="widget in chapterDetail.widgets" :key="widget.label" class="card">
+                <div>
+                  <h5>{{ widget.label }}</h5>
+                  <p>{{ widget.purpose }}</p>
+                </div>
+                <span class="chip">{{ widget.type }}</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Learning Paths</h2>
+        <div v-if="!selectedSubject" class="empty-state">
+          Select a subject to view the learning path.
+        </div>
+        <div v-else-if="learningPaths.length === 0" class="empty-state">
+          No learning paths configured for this subject.
+        </div>
+        <div v-else class="detail-content">
+          <div class="cards">
+            <button
+              v-for="path in learningPaths"
+              :key="path.id"
+              class="list-button"
+              :class="{ active: selectedPath?.id === path.id }"
+              @click="selectPath(path)"
+            >
+              <span class="list-title">{{ path.title }}</span>
+              <span class="list-meta">
+                {{ path.steps.length }} steps • {{ path.track || "Core" }}
+              </span>
+            </button>
+          </div>
+
+          <div v-if="selectedPath" class="path-detail">
+            <p class="summary">{{ selectedPath.description }}</p>
+            <div>
+              <h4>Outcomes</h4>
+              <ul class="bullet-list">
+                <li v-for="outcome in selectedPath.outcomes" :key="outcome">
+                  {{ outcome }}
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Steps</h4>
+              <div class="cards">
+                <div v-for="step in selectedPath.steps" :key="step.id" class="card">
+                  <div>
+                    <h5>{{ step.title }}</h5>
+                    <p>{{ step.description }}</p>
+                    <p class="meta-text">Milestone: {{ step.milestone }}</p>
+                    <p class="meta-text">
+                      Chapters: {{ step.chapterIds.join(", ") }}
+                    </p>
+                    <p class="meta-text">
+                      Evidence: {{ step.evidence.examplesRequired }} examples
+                      ({{ step.evidence.evidenceTypes.join(", ") }})
+                    </p>
+                  </div>
+                  <span class="chip">{{ step.recommendedWeeks }} weeks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Registration Options</h2>
+        <div v-if="!registrationOptions" class="empty-state">
+          Loading registration flows...
+        </div>
+        <div v-else class="detail-content">
+          <div class="cards">
+            <div v-for="role in registrationOptions.roles" :key="role.role" class="card">
+              <div>
+                <h5>{{ role.displayName }}</h5>
+                <p>{{ role.description }}</p>
+                <div class="chip-row">
+                  <span class="chip">{{ role.requiredFields.length }} required fields</span>
+                  <span class="chip">{{ role.verificationSteps.length }} verifications</span>
+                </div>
+              </div>
+              <div>
+                <h6>Required fields</h6>
+                <ul class="bullet-list">
+                  <li v-for="field in role.requiredFields" :key="field.id">
+                    {{ field.label }} ({{ field.type }})
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h6>Verification steps</h6>
+                <ul class="bullet-list">
+                  <li v-for="step in role.verificationSteps" :key="step.id">
+                    {{ step.label }}
+                  </li>
+                </ul>
+              </div>
+              <div v-if="role.consents.length">
+                <h6>Consent requirements</h6>
+                <ul class="bullet-list">
+                  <li v-for="consent in role.consents" :key="consent.id">
+                    {{ consent.label }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="state-flow">
+            <h4>Registration states</h4>
+            <div class="chips">
+              <span
+                v-for="state in registrationOptions.stateFlow.states"
+                :key="state.name"
+                class="chip muted"
+              >
+                {{ state.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</template>
+
+<script setup>
+import { computed, onMounted, ref } from "vue";
+import { fetchJson } from "./api";
+
+const subjects = ref([]);
+const chapters = ref([]);
+const selectedSubject = ref(null);
+const selectedChapter = ref(null);
+const chapterDetail = ref(null);
+const registrationOptions = ref(null);
+const learningPaths = ref([]);
+const selectedPath = ref(null);
+const statusMessage = ref("");
+const completedChapterIds = ref(new Set());
+
+const orderedChapters = computed(() =>
+  [...chapters.value].sort((a, b) => a.order - b.order)
+);
+
+const progressKey = computed(() =>
+  selectedSubject.value ? `progress:${selectedSubject.value.id}` : null
+);
+
+onMounted(async () => {
+  await Promise.all([loadSubjects(), loadRegistrationOptions()]);
+});
+
+async function loadSubjects() {
+  statusMessage.value = "Loading subjects...";
+  try {
+    subjects.value = await fetchJson("/api/subjects");
+  } catch (error) {
+    statusMessage.value = error.message;
+    return;
+  }
+  statusMessage.value = "";
+}
+
+async function selectSubject(subject) {
+  selectedSubject.value = subject;
+  selectedChapter.value = null;
+  chapterDetail.value = null;
+  selectedPath.value = null;
+  learningPaths.value = [];
+  loadProgress(subject.id);
+
+  statusMessage.value = "Loading chapters...";
+  try {
+    chapters.value = await fetchJson(`/api/subjects/${subject.id}/chapters`);
+    statusMessage.value = "";
+  } catch (error) {
+    statusMessage.value = error.message;
+    return;
+  }
+
+  await loadLearningPaths(subject.id);
+}
+
+async function selectChapter(chapter) {
+  selectedChapter.value = chapter;
+  statusMessage.value = "Loading chapter...";
+  try {
+    chapterDetail.value = await fetchJson(
+      `/api/subjects/${selectedSubject.value.id}/chapters/${chapter.id}`
+    );
+    statusMessage.value = "";
+  } catch (error) {
+    statusMessage.value = error.message;
+  }
+}
+
+async function loadRegistrationOptions() {
+  try {
+    registrationOptions.value = await fetchJson("/api/registration/options");
+  } catch (error) {
+    statusMessage.value = error.message;
+  }
+}
+
+async function loadLearningPaths(subjectId) {
+  try {
+    learningPaths.value = await fetchJson(`/api/subjects/${subjectId}/learning-paths`);
+    selectedPath.value = learningPaths.value[0] || null;
+  } catch (error) {
+    statusMessage.value = error.message;
+    learningPaths.value = [];
+    selectedPath.value = null;
+  }
+}
+
+function selectPath(path) {
+  selectedPath.value = path;
+}
+
+function loadProgress(subjectId) {
+  const stored = localStorage.getItem(`progress:${subjectId}`);
+  if (!stored) {
+    completedChapterIds.value = new Set();
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(stored);
+    completedChapterIds.value = new Set(parsed.completedChapterIds || []);
+  } catch (error) {
+    completedChapterIds.value = new Set();
+  }
+}
+
+function saveProgress() {
+  if (!progressKey.value) {
+    return;
+  }
+
+  const payload = {
+    completedChapterIds: Array.from(completedChapterIds.value)
+  };
+  localStorage.setItem(progressKey.value, JSON.stringify(payload));
+}
+
+function markComplete() {
+  if (!chapterDetail.value) {
+    return;
+  }
+
+  completedChapterIds.value.add(chapterDetail.value.id);
+  saveProgress();
+}
+
+function isCompleted(chapter) {
+  return completedChapterIds.value.has(chapter.id);
+}
+
+function isUnlocked(chapter) {
+  if (chapter.order === 1) {
+    return true;
+  }
+
+  const previous = orderedChapters.value.find(
+    (item) => item.order === chapter.order - 1
+  );
+
+  if (!previous) {
+    return true;
+  }
+
+  return completedChapterIds.value.has(previous.id);
+}
+</script>
